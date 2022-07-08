@@ -26,7 +26,7 @@ resource "alicloud_vswitch" "db_vsw" {
 resource "alicloud_db_instance" "base_db" {
   engine               = "MySQL"
   engine_version       = "8.0"
-  instance_type        = data.alicloud_db_instance_classes.resources.instance_classes[0].instance_class
+  instance_type        = "rds.mysql.s1.small"
   instance_storage     = "30"
   instance_charge_type = "Postpaid"
   vswitch_id           = alicloud_vswitch.db_vsw.id

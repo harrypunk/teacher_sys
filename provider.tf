@@ -8,5 +8,7 @@ terraform {
 }
 
 provider "alicloud" {
+  # cn-hongkong rds failed with invalid zone
+  region = "cn-shenzhen"
 }
 

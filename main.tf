@@ -1,18 +1,3 @@
-variable "db_name" {
-  type    = string
-  default = "t_dev"
-}
-
-variable "db_user" {
-  type    = string
-  default = "dev001"
-}
-variable "db_password" {
-  type      = string
-  sensitive = true
-  default   = "app12345"
-}
-
 resource "alicloud_vpc" "db_vpc" {
   cidr_block = "172.16.0.0/16"
 }
@@ -26,7 +11,7 @@ resource "alicloud_vswitch" "db_vsw" {
 resource "alicloud_db_instance" "base_db" {
   engine               = "MySQL"
   engine_version       = "8.0"
-  instance_type        = "rds.mysql.s1.small"
+  instance_type        = "mysql.n1.micro.1"
   instance_storage     = "30"
   instance_charge_type = "Postpaid"
   vswitch_id           = alicloud_vswitch.db_vsw.id

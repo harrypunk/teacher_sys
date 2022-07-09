@@ -5,6 +5,7 @@ variable "bucket_name" {
 
 resource "alicloud_oss_bucket" "bucket-website" {
   bucket = var.bucket_name
+  acl = "public-read"
 
   website {
     index_document = "index.html"
